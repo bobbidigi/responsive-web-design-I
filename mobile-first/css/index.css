@@ -54,6 +54,9 @@ html, body {
     height: 100%;
     font-family: 'Titillium Web', sans-serif;
 }
+body {
+	background-color: pink;
+}
 h1, h2, h3, h4, h5 {
     font-family: 'Bangers', cursive;
     letter-spacing: 1px;
@@ -61,27 +64,32 @@ h1, h2, h3, h4, h5 {
 }
 /* Copy and paste your work from yesterday here and start to refactor into flexbox */
 .container {
-	width: 800px;
-	margin: auto;
+	max-width: 80%;
+	margin: 0 auto;
 }
+
 header {
 	width: 100%;
 	display: flex;
+	flex-direction: column-reverse;
 	justify-content: space-between;
 	align-items: center;
 	border: 1px solid purple; 
-	padding: 25px 0;
 }
 header nav {
-	border: 1px solid red;
-	width: 60%;
 	display: flex;
+	flex-direction: column;
+	text-align: center;
+	border: 1px solid red;
+	width: 100%;
 	justify-content: space-between;
 }
 header nav a {
 	color: #666;
 	text-decoration: none;
 	font-size: 13px;
+	border: 1px solid blue;
+	padding: 12.5px 0;
 }
 header a img{
 	border: 1px solid red;
@@ -117,27 +125,23 @@ header a img{
 	padding: 7px 25px; 
 }
 .hero .hero-image {
-	border: 1px solid blue;
+	display: none;
 }
-.hero .hero-image img {
 
+.hero .hero-text {
+	width: 100%;
 }
-.section2{
+.section2, .section3{
 	display: flex;
+	flex-direction: column;
 	margin: 20px 0;
 }
-.section2 section {
-	line-height: 1.15;
-	margin-right: 15px;
-}
-.section3{
-	display: flex;
-	margin: 20px 0;
-}
+.section2 section,
 .section3 section {
 	line-height: 1.15;
-	margin-right: 15px;
+	margin: 20px 0;
 }
+
 .middle-img,
 .services-header-img {
 	width: 100%;
@@ -169,6 +173,7 @@ header a img{
 .row section p{
 	line-height: 1.2;
 	margin: 5px 0;
+	display: none;
 }
 .row section a{
 	text-decoration: none;
@@ -182,10 +187,12 @@ header a img{
 .row2{
 	display:flex;
 	justify-content: space-between;
+	flex-direction: column-reverse;
+	align-items: center;
 }
 .row2 section {
 	padding: 25px 0;
-	width: 48%;
+	width: 100%;
 }
 .row2 img{
 	width: 48%;
@@ -211,7 +218,7 @@ footer {
 /* Introduce max-width media queries into your project at 800px and 500px */
 
 /* tablet */
-@media only screen and (max-width: 800px) {
+/* @media only screen and (max-width: 800px) {
 	body {
 		background-color: lightblue;
 	}
@@ -219,21 +226,16 @@ footer {
 		max-width: 95vw;
 	}
 	header{
-		flex-direction: column-reverse;
+		
 	}
 	header nav {
-		width: 100%;
-		padding: 1rem .5rem;
-	}
+		/* width: 100%; */
+		/* padding: 1rem .5rem; */
+	/* }
 	header a img{
 		padding: 1rem 0;
 	}
-	.hero .hero-image{
-		display: none;
-	}
-	.hero .hero-text{
-		width: 100%;
-	}
+	
 	.row2 {
 		flex-direction: column-reverse;
 		align-items: center;
@@ -244,31 +246,68 @@ footer {
 	.row2 img{
 		
 	}
-}
+} */
 /* mobile */
-@media only screen and (max-width: 500px) {
-	body {
-		background-color: pink;
+@media only screen and (min-width: 500px) {
+	body{
+		background: lightcyan;
+	}
+	header{
+		margin: 25px 0;
 	}
 	header nav{
-		flex-direction: column;
-		text-align: center;
-		padding: 0;
+		flex-direction: row;
+		margin: 25px 0;
 	}
-	header nav a{
-		padding: 1rem 0;
-	}
-	.section2{
-		flex-direction: column;
-	}
-	.section2 section{
-		width: 100%;
-	}
+	/* section */
+	.section2,
 	.section3 {
-		flex-direction: column;
+		flex-direction: row;
 	}
 
+	.section2 section,
 	.section3 section {
-		width: 100%;
+		margin: 0 10px 0 0;
+	}
+	.row section p{
+		display: block;
+	}
+}	
+
+@media only screen and (min-width: 776px) {
+	.container{
+		max-width: 880px;
+	}
+	body {
+		background: #fff;
+	}
+	header{
+		flex-direction: row;
+	}
+	header nav {
+		width: 66%;
+	}
+
+	.hero .hero-image{
+		display: block;
+	}
+
+	/* section */
+	.section2,
+	.section3 {
+		flex-direction: row;
+	}
+
+	.section2 section,
+	.section3 section {
+		margin: 0 10px 0 0;
+	}
+	.row2 {
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.row2 section {
+		width: 48%;
 	}
 }
